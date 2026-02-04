@@ -1,14 +1,26 @@
 ---
-import { TreeDeciduous } from "lucide-astro";
+import { Sprout } from "lucide-astro";
 ---
 
-<section class="py-12">
-  <div class="mx-auto max-w-3xl px-6">
-    <div class="flex items-center justify-center gap-3 text-muted">
-      <TreeDeciduous size={20} class="text-emerald" style="color: var(--emerald);" />
-      <p class="italic">
-        <span class="font-medium">Garden mode:</span> Tasks become seeds that sprout and bloom. Silly but fun.
-      </p>
+<section class="py-16 bg-sage text-cream relative overflow-hidden">
+  <div class="organic-blob" style="background: var(--terracotta); width: 300px; height: 300px; top: -20%; right: -10%;"></div>
+
+  <div class="mx-auto max-w-4xl px-6 relative z-10">
+    <div class="flex flex-col md:flex-row items-center gap-6 md:gap-8">
+      <div class="flex-shrink-0">
+        <div class="bg-cream/10 p-6 rounded-full backdrop-blur-sm border-2 border-cream/20">
+          <Sprout size={48} class="text-cream" />
+        </div>
+      </div>
+
+      <div>
+        <h3 class="font-display text-2xl md:text-3xl font-bold mb-2">
+          Garden Mode
+        </h3>
+        <p class="text-cream/90 text-lg leading-relaxed">
+          Watch your tasks transform into seeds that sprout and bloom as you complete them. A playful way to visualize your growing garden of ideas.
+        </p>
+      </div>
     </div>
   </div>
 </section>
