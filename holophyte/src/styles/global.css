@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+@theme {
+  --font-body: "Inter", sans-serif;
+  --font-logo: "Bungee Shade", cursive;
+}
+
+:root {
+  --bg: oklch(0.13 0.02 285);
+  --surface: oklch(0.18 0.02 285);
+  --border: oklch(0.26 0.02 285);
+  --text: oklch(0.95 0.01 285);
+  --text-muted: oklch(0.68 0.02 285);
+  --text-faint: oklch(0.45 0.02 285);
+  --emerald: oklch(0.75 0.18 165);
+  --cyan: oklch(0.80 0.14 195);
+  --purple: oklch(0.72 0.15 295);
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+.font-logo {
+  font-family: var(--font-logo);
+}
+
+.text-emerald {
+  color: var(--emerald);
+}
+
+.text-cyan {
+  color: var(--cyan);
+}
+
+.text-purple {
+  color: var(--purple);
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+.text-faint {
+  color: var(--text-faint);
+}
+
+.bg-surface {
+  background-color: var(--surface);
+}
+
+.border-custom {
+  border-color: var(--border);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--emerald), oklch(from var(--emerald) calc(l * 0.85) c h));
+  color: oklch(0.15 0.02 285);
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, oklch(from var(--emerald) calc(l * 1.1) c h), var(--emerald));
+  box-shadow: 0 0 24px oklch(from var(--emerald) l c h / 0.4);
+}
+
+.btn-secondary {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+  border-color: var(--text-muted);
+  background-color: oklch(from var(--surface) calc(l * 1.2) c h);
+}
+
+.card {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+}
+
+.tag {
+  background: oklch(from var(--emerald) l c h / 0.15);
+  color: var(--emerald);
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.hero-glow {
+  position: absolute;
+  width: 600px;
+  height: 400px;
+  background: radial-gradient(ellipse at center, oklch(from var(--emerald) l c h / 0.15) 0%, transparent 70%);
+  pointer-events: none;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+.grid-bg {
+  background-image:
+    linear-gradient(oklch(from var(--purple) l c h / 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, oklch(from var(--purple) l c h / 0.08) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, black 20%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, black 20%, transparent 70%);
+}

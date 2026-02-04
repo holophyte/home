@@ -1,0 +1,45 @@
+---
+const features = [
+  {
+    emoji: "💡",
+    title: "Capture ideas instantly with a global hotkey",
+  },
+  {
+    emoji: "🌱",
+    title: "Turn vague thoughts into real tasks with AI",
+  },
+  {
+    emoji: "🧠",
+    title: "Brainstorm approaches when you're stuck",
+  },
+  {
+    emoji: "⚡",
+    title: "Run Claude Code directly from tasks",
+  },
+  {
+    emoji: "📝",
+    title: "AI summaries of what's been done",
+  },
+  {
+    emoji: "🧭",
+    title: "Never forget where you left off",
+  },
+];
+---
+
+<section class="py-20">
+  <div class="mx-auto max-w-5xl px-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      {
+        features.map((feature) => (
+          <div class="card flex items-start gap-4">
+            <span class="text-2xl" role="img" aria-hidden="true">
+              {feature.emoji}
+            </span>
+            <p class="text-muted">{feature.title}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
