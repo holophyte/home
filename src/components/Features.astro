@@ -1,42 +1,63 @@
 ---
 const features = [
   {
-    emoji: "💡",
-    title: "Capture ideas instantly with a global hotkey",
+    number: "01",
+    title: "Capture instantly",
+    description: "Global hotkey to catch fleeting thoughts before they escape",
   },
   {
-    emoji: "🌱",
-    title: "Turn vague thoughts into real tasks with AI",
+    number: "02",
+    title: "AI cultivation",
+    description: "Turn vague thoughts into actionable tasks with intelligent assistance",
   },
   {
-    emoji: "🧠",
-    title: "Brainstorm approaches when you're stuck",
+    number: "03",
+    title: "Unstick yourself",
+    description: "Brainstorm approaches when you hit a creative block",
   },
   {
-    emoji: "⚡",
-    title: "Run Claude Code directly from tasks",
+    number: "04",
+    title: "Direct execution",
+    description: "Run Claude Code directly from your tasks without context switching",
   },
   {
-    emoji: "📝",
-    title: "AI summaries of what's been done",
+    number: "05",
+    title: "Remember everything",
+    description: "AI-generated summaries of your progress and accomplishments",
   },
   {
-    emoji: "🧭",
-    title: "Never forget where you left off",
+    number: "06",
+    title: "Never lose your place",
+    description: "Pick up exactly where you left off, every single time",
   },
 ];
 ---
 
-<section class="py-20">
-  <div class="mx-auto max-w-5xl px-6">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<section class="py-24 md:py-32 relative">
+  <div class="color-block" style="background: var(--sage); width: 300px; height: 200px; top: 10%; right: -8%; transform: rotate(8deg);"></div>
+
+  <div class="mx-auto max-w-6xl px-6">
+    <div class="mb-16 fade-in">
+      <h2 class="font-serif text-5xl md:text-6xl lg:text-7xl text-brown leading-tight">
+        A garden for your<br/>
+        <span class="italic text-sage">growing</span> ideas
+      </h2>
+      <div class="mt-4 h-1 w-32 bg-terracotta"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
       {
-        features.map((feature) => (
-          <div class="card flex items-start gap-4">
-            <span class="text-2xl" role="img" aria-hidden="true">
-              {feature.emoji}
-            </span>
-            <p class="text-muted">{feature.title}</p>
+        features.map((feature, index) => (
+          <div class="card sprout-animation" style={`animation-delay: ${0.1 * index}s;`}>
+            <div class="font-display text-terracotta text-sm font-bold mb-2 tracking-wider">
+              {feature.number}
+            </div>
+            <h3 class="font-display text-2xl text-brown font-semibold mb-3">
+              {feature.title}
+            </h3>
+            <p class="text-muted leading-relaxed">
+              {feature.description}
+            </p>
           </div>
         ))
       }

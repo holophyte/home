@@ -2,13 +2,27 @@
 import SproutIcon from "./SproutIcon.astro";
 ---
 
-<footer class="border-t border-custom py-8">
-  <div class="mx-auto flex max-w-5xl items-center justify-between px-6">
-    <div class="flex items-center gap-2">
-      <SproutIcon size={18} />
-      <span class="font-logo text-sm text-emerald">Holophyte</span>
+<footer class="border-t-4 border-brown py-12 bg-cream-dark relative">
+  <div class="color-block" style="background: var(--terracotta); width: 150px; height: 100px; bottom: 0; left: 10%; opacity: 0.2;"></div>
+
+  <div class="mx-auto max-w-6xl px-6 relative z-10">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-3">
+        <SproutIcon size={28} />
+        <span class="font-display text-2xl text-brown font-bold">Holophyte</span>
+      </div>
+
+      <div class="flex items-center gap-8">
+        <p class="font-display text-sm text-muted tracking-wide">MADE BY KO</p>
+        <div class="h-6 w-0.5 bg-brown/20"></div>
+        <p class="text-sm text-muted">2026</p>
+      </div>
     </div>
 
-    <p class="text-sm text-faint">Made by Ko</p>
+    <div class="mt-8 pt-8 border-t-2 border-brown/10 text-center">
+      <p class="text-xs text-muted italic">
+        Let your ideas grow wild and free
+      </p>
+    </div>
   </div>
 </footer>

@@ -1,122 +1,211 @@
 @import "tailwindcss";
 
 @theme {
-  --font-body: "Inter", sans-serif;
-  --font-logo: "Bungee Shade", cursive;
+  --font-serif: "Cormorant Garamond", serif;
+  --font-display: "Syne", sans-serif;
+  --font-body: "Karla", sans-serif;
 }
 
 :root {
-  --bg: oklch(0.13 0.02 285);
-  --surface: oklch(0.18 0.02 285);
-  --border: oklch(0.26 0.02 285);
-  --text: oklch(0.95 0.01 285);
-  --text-muted: oklch(0.68 0.02 285);
-  --text-faint: oklch(0.45 0.02 285);
-  --emerald: oklch(0.75 0.18 165);
-  --cyan: oklch(0.80 0.14 195);
-  --purple: oklch(0.72 0.15 295);
+  --cream: #F9F6F0;
+  --cream-dark: #F0EBE3;
+  --sage: #5A6D5A;
+  --sage-dark: #3F4F3F;
+  --terracotta: #D97D54;
+  --brown: #3D2817;
+  --brown-light: #6B4E37;
+  --text: #1A1512;
+  --text-muted: #645A52;
+  --accent-yellow: #E8B44D;
 }
 
 body {
   font-family: var(--font-body);
-  background-color: var(--bg);
+  background-color: var(--cream);
   color: var(--text);
+  position: relative;
 }
 
-.font-logo {
-  font-family: var(--font-logo);
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: multiply;
 }
 
-.text-emerald {
-  color: var(--emerald);
+.font-serif {
+  font-family: var(--font-serif);
 }
 
-.text-cyan {
-  color: var(--cyan);
+.font-display {
+  font-family: var(--font-display);
 }
 
-.text-purple {
-  color: var(--purple);
+.text-sage {
+  color: var(--sage);
+}
+
+.text-terracotta {
+  color: var(--terracotta);
+}
+
+.text-brown {
+  color: var(--brown);
 }
 
 .text-muted {
   color: var(--text-muted);
 }
 
-.text-faint {
-  color: var(--text-faint);
+.bg-cream-dark {
+  background-color: var(--cream-dark);
 }
 
-.bg-surface {
-  background-color: var(--surface);
+.bg-sage {
+  background-color: var(--sage);
 }
 
-.border-custom {
-  border-color: var(--border);
+.bg-terracotta {
+  background-color: var(--terracotta);
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--emerald), oklch(from var(--emerald) calc(l * 0.85) c h));
-  color: oklch(0.15 0.02 285);
+  background-color: var(--sage);
+  color: var(--cream);
+  font-family: var(--font-display);
   font-weight: 600;
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.75rem;
-  transition: all 0.2s ease;
+  padding: 1rem 2rem;
+  border-radius: 2px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  letter-spacing: 0.02em;
 }
 
-.btn-primary:hover {
-  background: linear-gradient(135deg, oklch(from var(--emerald) calc(l * 1.1) c h), var(--emerald));
-  box-shadow: 0 0 24px oklch(from var(--emerald) l c h / 0.4);
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--sage-dark), var(--sage));
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.btn-primary:hover::before {
+  opacity: 1;
+}
+
+.btn-primary span {
+  position: relative;
+  z-index: 1;
 }
 
 .btn-secondary {
-  background-color: var(--surface);
-  border: 1px solid var(--border);
-  color: var(--text);
-  font-weight: 500;
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.75rem;
-  transition: all 0.2s ease;
+  background-color: transparent;
+  border: 2px solid var(--brown);
+  color: var(--brown);
+  font-family: var(--font-display);
+  font-weight: 600;
+  padding: 1rem 2rem;
+  border-radius: 2px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  letter-spacing: 0.02em;
 }
 
 .btn-secondary:hover {
-  border-color: var(--text-muted);
-  background-color: oklch(from var(--surface) calc(l * 1.2) c h);
+  background-color: var(--brown);
+  color: var(--cream);
 }
 
 .card {
-  background-color: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 0.75rem;
-  padding: 1.5rem;
+  background-color: white;
+  border-left: 4px solid var(--terracotta);
+  padding: 2rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
 }
 
-.tag {
-  background: oklch(from var(--emerald) l c h / 0.15);
-  color: var(--emerald);
-  padding: 0.25rem 0.75rem;
-  border-radius: 9999px;
-  font-size: 0.875rem;
-  font-weight: 500;
-}
-
-.hero-glow {
+.card::after {
+  content: '';
   position: absolute;
-  width: 600px;
-  height: 400px;
-  background: radial-gradient(ellipse at center, oklch(from var(--emerald) l c h / 0.15) 0%, transparent 70%);
-  pointer-events: none;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: -1;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--sage);
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.grid-bg {
-  background-image:
-    linear-gradient(oklch(from var(--purple) l c h / 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, oklch(from var(--purple) l c h / 0.08) 1px, transparent 1px);
-  background-size: 60px 60px;
-  mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, black 20%, transparent 70%);
-  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, black 20%, transparent 70%);
+.card:hover {
+  transform: translateX(8px);
+  box-shadow: -8px 8px 0 var(--cream-dark);
+}
+
+.card:hover::after {
+  width: 100%;
+}
+
+.organic-blob {
+  position: absolute;
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  filter: blur(60px);
+  opacity: 0.15;
+  pointer-events: none;
+  animation: blob-morph 20s ease-in-out infinite;
+}
+
+@keyframes blob-morph {
+  0%, 100% {
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  }
+  25% {
+    border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%;
+  }
+  50% {
+    border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%;
+  }
+  75% {
+    border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%;
+  }
+}
+
+.sprout-animation {
+  animation: sprout 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
+}
+
+@keyframes sprout {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.fade-in {
+  animation: fade-in 0.8s ease-out backwards;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.color-block {
+  position: absolute;
+  mix-blend-mode: multiply;
+  opacity: 0.4;
+  pointer-events: none;
 }
