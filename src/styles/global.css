@@ -6,17 +6,38 @@
   --font-body: "Karla", sans-serif;
 }
 
+/* ==========================================================================
+   THEME SYSTEM — CSS Relative Colors
+
+   We define 5 base colors per theme. Every derived shade, hover state,
+   tint, and alpha variant is computed with oklch() relative color syntax:
+
+     oklch(from var(--base) calc(l ± offset) c h)
+
+   This means adding a new theme only requires changing 5 base values.
+   ========================================================================== */
+
 :root {
-  --cream: #FAF7F4;
-  --cream-dark: #F0ECE8;
-  --sage: #2E6E5E;
-  --sage-dark: #1A5245;
-  --terracotta: #E06858;
-  --brown: #3A2E2A;
-  --brown-light: #6A5550;
-  --text: #1A1512;
-  --text-muted: #6A5550;
-  --accent-yellow: #F0A87A;
+  /* ---- Base palette (Coral — default) ---- */
+  --color-primary:   #2E6E5E;  /* sage */
+  --color-accent:    #E06858;  /* terracotta */
+  --color-highlight: #F0A87A;  /* accent-yellow */
+  --color-dark:      #3A2E2A;  /* brown */
+  --color-surface:   #FAF7F4;  /* cream */
+
+  /* ---- Legacy aliases mapped to the base palette ----
+       Components still reference these; they now resolve
+       through relative-color derivations from the 5 bases. */
+  --cream:        var(--color-surface);
+  --cream-dark:   oklch(from var(--color-surface) calc(l - 0.03) c h);
+  --sage:         var(--color-primary);
+  --sage-dark:    oklch(from var(--color-primary) calc(l - 0.08) c h);
+  --terracotta:   var(--color-accent);
+  --brown:        var(--color-dark);
+  --brown-light:  oklch(from var(--color-dark) calc(l + 0.15) c h);
+  --text:         oklch(from var(--color-dark) calc(l - 0.05) c h);
+  --text-muted:   oklch(from var(--color-dark) calc(l + 0.15) c h);
+  --accent-yellow: var(--color-highlight);
 }
 
 body {
@@ -53,7 +74,7 @@ body::before {
 }
 
 .text-brown {
-  color: var(--brown);
+  color: var(--color-dark);
 }
 
 .text-muted {
@@ -72,14 +93,16 @@ body::before {
   background-color: var(--terracotta);
 }
 
+/* ---------- Buttons — relative-color hover states ---------- */
+
 .btn-primary {
-  background-color: var(--sage);
-  color: var(--cream);
+  background-color: var(--color-primary);
+  color: var(--color-surface);
   font-family: var(--font-display);
   font-weight: 600;
   padding: 1rem 2rem;
   border-radius: 2px;
-  border: 2px solid var(--sage);
+  border: 2px solid var(--color-primary);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
@@ -87,8 +110,9 @@ body::before {
 }
 
 .btn-primary:hover {
-  background-color: var(--sage-dark);
-  border-color: var(--sage-dark);
+  /* Darken primary by 10% lightness in oklch */
+  background-color: oklch(from var(--color-primary) calc(l - 0.1) c h);
+  border-color: oklch(from var(--color-primary) calc(l - 0.1) c h);
 }
 
 .btn-primary svg {
@@ -98,8 +122,8 @@ body::before {
 
 .btn-secondary {
   background-color: transparent;
-  border: 2px solid var(--brown);
-  color: var(--brown);
+  border: 2px solid var(--color-dark);
+  color: var(--color-dark);
   font-family: var(--font-display);
   font-weight: 600;
   padding: 1rem 2rem;
@@ -110,13 +134,16 @@ body::before {
 }
 
 .btn-secondary:hover {
-  background-color: var(--brown);
-  color: var(--cream);
+  background-color: var(--color-dark);
+  color: var(--color-surface);
 }
 
+/* ---------- Cards — relative-color derived accents ---------- */
+
 .card {
-  background-color: white;
-  border-left: 4px solid var(--terracotta);
+  /* Surface tinted just slightly toward the accent */
+  background-color: oklch(from var(--color-surface) calc(l - 0.01) calc(c + 0.005) h);
+  border-left: 4px solid var(--color-accent);
   padding: 2rem;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
@@ -129,18 +156,21 @@ body::before {
   right: 0;
   width: 0;
   height: 2px;
-  background-color: var(--sage);
+  background-color: var(--color-primary);
   transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card:hover {
   transform: translateX(8px);
-  box-shadow: -8px 8px 0 var(--cream-dark);
+  /* Shadow color derived from surface, darkened */
+  box-shadow: -8px 8px 0 oklch(from var(--color-surface) calc(l - 0.06) c h);
 }
 
 .card:hover::after {
   width: 100%;
 }
+
+/* ---------- Organic blobs ---------- */
 
 .organic-blob {
   position: absolute;
@@ -165,6 +195,8 @@ body::before {
     border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%;
   }
 }
+
+/* ---------- Animations ---------- */
 
 .sprout-animation {
   animation: sprout 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) backwards;

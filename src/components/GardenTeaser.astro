@@ -3,27 +3,27 @@ import { Sprout } from "lucide-astro";
 import PlantDecor from "./PlantDecor.astro";
 ---
 
-<section class="py-10 md:py-12 bg-sage text-cream relative overflow-hidden">
-  <div class="organic-blob" style="background: var(--terracotta); width: 300px; height: 300px; top: -20%; right: -10%;"></div>
+<section class="py-10 md:py-12 relative overflow-hidden" style="background-color: var(--color-primary); color: var(--color-surface);">
+  <div class="organic-blob" style="background: var(--color-accent); width: 300px; height: 300px; top: -20%; right: -10%;"></div>
 
   <!-- Fern pattern as subtle texture -->
   <div class="absolute top-[-30%] left-[-5%] opacity-[0.15] pointer-events-none">
-    <PlantDecor size={600} variant="fern" class="text-[var(--cream)]" />
+    <PlantDecor size={600} variant="fern" class="text-[var(--color-surface)]" />
   </div>
 
   <div class="mx-auto max-w-4xl px-6 relative z-10">
     <div class="flex flex-col md:flex-row items-center gap-5 md:gap-6">
       <div class="flex-shrink-0">
-        <div class="bg-cream/10 p-5 rounded-full backdrop-blur-sm border-2 border-cream/20">
-          <Sprout size={44} class="text-cream" />
+        <div class="p-5 rounded-full backdrop-blur-sm" style="background: oklch(from var(--color-surface) l c h / 0.1); border: 2px solid oklch(from var(--color-surface) l c h / 0.2);">
+          <Sprout size={44} style="color: var(--color-surface);" />
         </div>
       </div>
 
       <div>
-        <h3 class="font-display text-2xl md:text-3xl font-bold mb-1">
+        <h3 class="font-display text-2xl md:text-3xl font-bold mb-1" style="color: var(--color-surface);">
           Garden Mode
         </h3>
-        <p class="text-cream/90 text-lg leading-relaxed">
+        <p class="text-lg leading-relaxed" style="color: oklch(from var(--color-surface) l c h / 0.9);">
           Watch your tasks transform into seeds that sprout and bloom as you complete them. A playful way to visualize your growing garden of ideas.
         </p>
       </div>

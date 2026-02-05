@@ -39,11 +39,11 @@ const features = [
 <section class="py-12 md:py-16 relative overflow-hidden">
   <!-- Large faded bush silhouette in background -->
   <div class="absolute top-[5%] right-[-5%] opacity-[0.12] pointer-events-none" style="transform: rotate(10deg);">
-    <PlantDecor size={700} variant="bush" class="text-[var(--sage)]" />
+    <PlantDecor size={700} variant="bush" class="text-[var(--color-primary)]" />
   </div>
   <!-- Branch accent -->
   <div class="absolute bottom-[12%] left-[-2%] opacity-25 pointer-events-none" style="transform: rotate(-15deg) scaleX(-1);">
-    <BranchDecor size={150} variant={1} class="text-[var(--terracotta)]" />
+    <BranchDecor size={150} variant={1} class="text-[var(--color-accent)]" />
   </div>
 
   <div class="mx-auto max-w-6xl px-6">
@@ -52,7 +52,7 @@ const features = [
         A garden for your<br/>
         <span class="italic text-sage">growing</span> ideas
       </h2>
-      <div class="mt-3 h-1 w-32 bg-terracotta"></div>
+      <div class="mt-3 h-1 w-32" style="background-color: var(--color-accent);"></div>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-5">

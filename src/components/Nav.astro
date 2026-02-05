@@ -3,13 +3,13 @@ import { Github } from "lucide-astro";
 import SproutIcon from "./SproutIcon.astro";
 ---
 
-<nav class="sticky top-0 z-50 border-b-2 border-brown bg-cream/90 backdrop-blur-sm">
+<nav class="sticky top-0 z-50 border-b-2 backdrop-blur-sm" style="border-color: var(--color-dark); background-color: oklch(from var(--color-surface) l c h / 0.9);">
   <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
     <a href="/" class="flex items-center gap-3 group">
       <div class="transition-transform group-hover:rotate-12">
         <SproutIcon size={32} />
       </div>
-      <span class="font-display text-2xl text-brown font-bold tracking-tight">Holophyte</span>
+      <span class="font-display text-2xl font-bold tracking-tight" style="color: var(--color-dark);">Holophyte</span>
     </a>
 
     <div class="flex items-center gap-6">
@@ -17,7 +17,8 @@ import SproutIcon from "./SproutIcon.astro";
         href="https://github.com/holophyte/holophyte"
         target="_blank"
         rel="noopener noreferrer"
-        class="text-brown-light transition-all hover:text-sage hover:scale-110"
+        class="transition-all hover:scale-110"
+        style="color: oklch(from var(--color-dark) calc(l + 0.15) c h);"
         aria-label="GitHub"
       >
         <Github size={24} />

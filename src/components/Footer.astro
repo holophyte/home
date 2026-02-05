@@ -3,27 +3,28 @@ import SproutIcon from "./SproutIcon.astro";
 import BranchDecor from "./BranchDecor.astro";
 ---
 
-<footer class="border-t-4 border-brown py-6 bg-cream-dark relative overflow-hidden">
+<footer class="border-t-4 py-6 relative overflow-hidden" style="border-color: var(--color-dark); background-color: oklch(from var(--color-surface) calc(l - 0.03) c h);">
   <!-- Botanical accent -->
   <div class="absolute bottom-[-20px] left-[6%] opacity-15 pointer-events-none" style="transform: rotate(170deg);">
-    <BranchDecor size={140} variant={4} class="text-[var(--terracotta)]" />
+    <BranchDecor size={140} variant={4} class="text-[var(--color-accent)]" />
   </div>
 
   <div class="mx-auto max-w-6xl px-6 relative z-10">
     <div class="flex items-center justify-between">
       <div class="flex items-center gap-3">
         <SproutIcon size={24} />
-        <span class="font-display text-xl text-brown font-bold">Holophyte</span>
+        <span class="font-display text-xl font-bold" style="color: var(--color-dark);">Holophyte</span>
       </div>
 
       <div id="theme-switcher" class="flex items-center gap-1">
         <button data-theme="coral" class="active"><span class="swatch" style="background:#2E6E5E"></span><span class="swatch" style="background:#E06858"></span><span class="swatch" style="background:#F0A87A"></span></button>
         <button data-theme="terracotta"><span class="swatch" style="background:#5A6D5A"></span><span class="swatch" style="background:#D97D54"></span><span class="swatch" style="background:#E8B44D"></span></button>
+        <button data-theme="tropical"><span class="swatch" style="background:#10B183"></span><span class="swatch" style="background:#E36D9B"></span><span class="swatch" style="background:#E7DD6A"></span></button>
       </div>
 
       <div class="flex items-center gap-4">
         <p class="font-display text-sm text-muted tracking-wide">MADE BY KO</p>
-        <div class="h-4 w-px bg-brown/20"></div>
+        <div class="h-4 w-px" style="background: oklch(from var(--color-dark) l c h / 0.2);"></div>
         <p class="text-sm text-muted">2026</p>
       </div>
     </div>
@@ -44,11 +45,11 @@ import BranchDecor from "./BranchDecor.astro";
   }
 
   #theme-switcher button:hover {
-    border-color: var(--brown-light);
+    border-color: oklch(from var(--color-dark) calc(l + 0.15) c h);
   }
 
   #theme-switcher button.active {
-    border-color: var(--brown);
+    border-color: var(--color-dark);
   }
 
   .swatch {
@@ -61,30 +62,33 @@ import BranchDecor from "./BranchDecor.astro";
 </style>
 
 <script>
+  /*
+   * Theme switcher — only 5 base colors per theme.
+   * All derived shades (cream-dark, sage-dark, brown-light, text, text-muted)
+   * are computed via CSS relative colors in global.css, so we never
+   * need to ship or switch those manually.
+   */
   const themes: Record<string, Record<string, string>> = {
     coral: {
-      '--cream': '#FAF7F4',
-      '--cream-dark': '#F0ECE8',
-      '--sage': '#2E6E5E',
-      '--sage-dark': '#1A5245',
-      '--terracotta': '#E06858',
-      '--brown': '#3A2E2A',
-      '--brown-light': '#6A5550',
-      '--text': '#1A1512',
-      '--text-muted': '#6A5550',
-      '--accent-yellow': '#F0A87A',
+      '--color-primary':   '#2E6E5E',
+      '--color-accent':    '#E06858',
+      '--color-highlight': '#F0A87A',
+      '--color-dark':      '#3A2E2A',
+      '--color-surface':   '#FAF7F4',
     },
     terracotta: {
-      '--cream': '#F9F6F0',
-      '--cream-dark': '#F0EBE3',
-      '--sage': '#5A6D5A',
-      '--sage-dark': '#3F4F3F',
-      '--terracotta': '#D97D54',
-      '--brown': '#3D2817',
-      '--brown-light': '#6B4E37',
-      '--text': '#1A1512',
-      '--text-muted': '#645A52',
-      '--accent-yellow': '#E8B44D',
+      '--color-primary':   '#5A6D5A',
+      '--color-accent':    '#D97D54',
+      '--color-highlight': '#E8B44D',
+      '--color-dark':      '#3D2817',
+      '--color-surface':   '#F9F6F0',
+    },
+    tropical: {
+      '--color-primary':   '#10B183',  /* Emerald   */
+      '--color-accent':    '#E36D9B',  /* Watermelon */
+      '--color-highlight': '#E7DD6A',  /* Canary     */
+      '--color-dark':      '#2B4789',  /* Royal Blue */
+      '--color-surface':   '#F5F7F2',  /* soft warm white with a green lean */
     },
   };
 

@@ -5,10 +5,10 @@ import BranchDecor from "./BranchDecor.astro";
 <section class="py-10 md:py-14 relative">
   <div class="mx-auto max-w-4xl px-6">
     <div class="relative">
-      <div class="bg-white border-4 border-brown p-8 md:p-10 relative overflow-hidden">
+      <div class="border-4 p-8 md:p-10 relative overflow-hidden" style="background-color: oklch(from var(--color-surface) calc(l + 0.02) c h); border-color: var(--color-dark);">
         <!-- Fern accent in corner -->
         <div class="absolute top-[-10px] right-[-10px] opacity-15 pointer-events-none" style="transform: rotate(60deg);">
-          <BranchDecor size={120} variant={3} class="text-[var(--sage)]" />
+          <BranchDecor size={120} variant={3} class="text-[var(--color-primary)]" />
         </div>
 
         <p class="font-serif text-lg md:text-xl text-brown leading-relaxed">
