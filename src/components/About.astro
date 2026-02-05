@@ -2,19 +2,20 @@
 
 ---
 
-<section class="py-20 relative">
+<section class="py-16 md:py-24 relative">
   <div class="mx-auto max-w-4xl px-6">
     <div class="relative">
       <div class="absolute -left-8 top-0 w-2 h-full bg-terracotta hidden md:block"></div>
 
-      <div class="bg-white border-4 border-brown p-10 md:p-12 relative">
-        <div class="absolute top-4 right-4 w-16 h-16 bg-sage opacity-20 rounded-full"></div>
+      <div class="bg-white border-4 border-brown p-8 md:p-10 relative">
+        <!-- Replace circular element with botanical leaf -->
+        <div class="botanical-leaf" style="color: var(--sage); width: 80px; height: 80px; top: -2%; right: 2%; transform: rotate(45deg); opacity: 0.3;"></div>
 
-        <p class="font-serif text-2xl md:text-3xl text-brown leading-relaxed italic mb-6">
+        <p class="font-serif text-2xl md:text-3xl text-brown leading-relaxed italic mb-5">
           "A task manager that captures fleeting ideas, runs Claude Code on your tasks, and remembers where you left off so you don't have to."
         </p>
 
-        <div class="pt-6 border-t-2 border-brown/10">
+        <div class="pt-5 border-t-2 border-brown/10">
           <p class="text-muted leading-relaxed">
             Uses your Claude Max subscription, stores data in Convex, runs locally via Electron. Open source. Early and rough — but growing.
           </p>
