@@ -3,30 +3,26 @@ import SproutIcon from "./SproutIcon.astro";
 import BranchDecor from "./BranchDecor.astro";
 ---
 
-<footer class="border-t-4 border-brown py-12 bg-cream-dark relative overflow-hidden">
-  <!-- Botanical accent instead of color block -->
+<footer class="border-t-4 border-brown py-6 bg-cream-dark relative overflow-hidden">
+  <!-- Botanical accent -->
   <div class="absolute bottom-[-20px] left-[6%] opacity-15 pointer-events-none" style="transform: rotate(170deg);">
     <BranchDecor size={140} variant={4} class="text-[var(--terracotta)]" />
   </div>
 
   <div class="mx-auto max-w-6xl px-6 relative z-10">
-    <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+    <div class="flex items-center justify-between">
       <div class="flex items-center gap-3">
-        <SproutIcon size={28} />
-        <span class="font-display text-2xl text-brown font-bold">Holophyte</span>
+        <SproutIcon size={24} />
+        <span class="font-display text-xl text-brown font-bold">Holophyte</span>
       </div>
 
-      <div class="flex items-center gap-8">
+      <p class="text-xs text-muted italic hidden sm:block">Let your ideas grow wild and free</p>
+
+      <div class="flex items-center gap-4">
         <p class="font-display text-sm text-muted tracking-wide">MADE BY KO</p>
-        <div class="h-6 w-0.5 bg-brown/20"></div>
+        <div class="h-4 w-px bg-brown/20"></div>
         <p class="text-sm text-muted">2026</p>
       </div>
-    </div>
-
-    <div class="mt-8 pt-8 border-t-2 border-brown/10 text-center">
-      <p class="text-xs text-muted italic">
-        Let your ideas grow wild and free
-      </p>
     </div>
   </div>
 </footer>
