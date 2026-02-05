@@ -1,4 +1,7 @@
 ---
+import BranchDecor from "./BranchDecor.astro";
+import PlantDecor from "./PlantDecor.astro";
+
 const features = [
   {
     number: "01",
@@ -33,10 +36,15 @@ const features = [
 ];
 ---
 
-<section class="py-20 md:py-28 relative">
-  <!-- Botanical elements instead of color blocks -->
-  <div class="botanical-leaf" style="color: var(--sage); width: 140px; height: 140px; top: 5%; right: -4%; transform: rotate(35deg); opacity: 0.5;"></div>
-  <div class="botanical-leaf" style="color: var(--terracotta); width: 90px; height: 90px; bottom: 20%; left: -3%; transform: rotate(-20deg); opacity: 0.35;"></div>
+<section class="py-20 md:py-28 relative overflow-hidden">
+  <!-- Large faded bush silhouette in background -->
+  <div class="absolute top-[5%] right-[-5%] opacity-[0.12] pointer-events-none" style="transform: rotate(10deg);">
+    <PlantDecor size={700} variant="bush" class="text-[var(--sage)]" />
+  </div>
+  <!-- Branch accent -->
+  <div class="absolute bottom-[12%] left-[-2%] opacity-25 pointer-events-none" style="transform: rotate(-15deg) scaleX(-1);">
+    <BranchDecor size={150} variant={1} class="text-[var(--terracotta)]" />
+  </div>
 
   <div class="mx-auto max-w-6xl px-6">
     <div class="mb-14 fade-in">

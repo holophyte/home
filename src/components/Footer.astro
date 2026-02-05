@@ -1,9 +1,13 @@
 ---
 import SproutIcon from "./SproutIcon.astro";
+import BranchDecor from "./BranchDecor.astro";
 ---
 
-<footer class="border-t-4 border-brown py-12 bg-cream-dark relative">
-  <div class="color-block" style="background: var(--terracotta); width: 150px; height: 100px; bottom: 0; left: 10%; opacity: 0.2;"></div>
+<footer class="border-t-4 border-brown py-12 bg-cream-dark relative overflow-hidden">
+  <!-- Botanical accent instead of color block -->
+  <div class="absolute bottom-[-20px] left-[6%] opacity-15 pointer-events-none" style="transform: rotate(170deg);">
+    <BranchDecor size={140} variant={4} class="text-[var(--terracotta)]" />
+  </div>
 
   <div class="mx-auto max-w-6xl px-6 relative z-10">
     <div class="flex flex-col md:flex-row items-center justify-between gap-6">

@@ -1,14 +1,19 @@
 ---
 import { Download, Code } from "lucide-astro";
+import BranchDecor from "./BranchDecor.astro";
 ---
 
 <section class="relative overflow-visible py-16 md:py-24 lg:py-32">
   <div class="organic-blob" style="background: var(--sage); width: 500px; height: 500px; top: -10%; right: 10%;"></div>
   <div class="organic-blob" style="background: var(--terracotta); width: 400px; height: 400px; bottom: -5%; left: 5%; animation-delay: -5s;"></div>
 
-  <!-- Botanical decorative leaf -->
-  <div class="botanical-leaf" style="color: var(--accent-yellow); width: 120px; height: 120px; top: 10%; left: -3%; transform: rotate(-25deg) scaleX(-1);"></div>
-  <div class="botanical-leaf" style="color: var(--sage); width: 80px; height: 80px; top: 18%; left: 2%; transform: rotate(15deg); opacity: 0.4;"></div>
+  <!-- Botanical decorations — fern stems with cuts -->
+  <div class="absolute top-[4%] left-[-1%] opacity-40 pointer-events-none" style="transform: rotate(-20deg);">
+    <BranchDecor size={160} variant={4} class="text-[var(--accent-yellow)]" />
+  </div>
+  <div class="absolute top-[18%] left-[1%] opacity-30 pointer-events-none" style="transform: rotate(15deg) scaleX(-1);">
+    <BranchDecor size={130} variant={1} class="text-[var(--sage)]" />
+  </div>
 
   <div class="relative mx-auto max-w-6xl px-6">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-10 items-center">
@@ -35,7 +40,7 @@ import { Download, Code } from "lucide-astro";
             <span>Download for Mac</span>
           </a>
           <a
-            href="https://github.com/nicholasgriffintn/holophyte"
+            href="https://github.com/holophyte/holophyte"
             target="_blank"
             rel="noopener noreferrer"
             class="btn-secondary flex items-center gap-3"
