@@ -86,20 +86,12 @@ body::before {
   letter-spacing: 0.02em;
 }
 
-.btn-primary::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, var(--sage-dark), var(--sage));
-  opacity: 0;
-  transition: opacity 0.3s;
+.btn-primary:hover {
+  background-color: var(--sage-dark);
+  border-color: var(--sage-dark);
 }
 
-.btn-primary:hover::before {
-  opacity: 1;
-}
-
-.btn-primary span {
+.btn-primary svg {
   position: relative;
   z-index: 1;
 }
