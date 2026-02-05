@@ -7,16 +7,16 @@
 }
 
 :root {
-  --cream: #F9F6F0;
-  --cream-dark: #F0EBE3;
-  --sage: #5A6D5A;
-  --sage-dark: #3F4F3F;
-  --terracotta: #D97D54;
-  --brown: #3D2817;
-  --brown-light: #6B4E37;
+  --cream: #FAF7F4;
+  --cream-dark: #F0ECE8;
+  --sage: #2E6E5E;
+  --sage-dark: #1A5245;
+  --terracotta: #E06858;
+  --brown: #3A2E2A;
+  --brown-light: #6A5550;
   --text: #1A1512;
-  --text-muted: #645A52;
-  --accent-yellow: #E8B44D;
+  --text-muted: #6A5550;
+  --accent-yellow: #F0A87A;
 }
 
 body {

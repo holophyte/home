@@ -1,0 +1,111 @@
+---
+/**
+ * Temporary theme switcher for trying out color palettes.
+ * Remove this component once a palette is chosen.
+ */
+---
+
+<div id="theme-switcher">
+  <button data-theme="coral" class="active"><span class="swatch" style="background:#2E6E5E"></span><span class="swatch" style="background:#E06858"></span><span class="swatch" style="background:#F0A87A"></span>Coral</button>
+  <button data-theme="terracotta"><span class="swatch" style="background:#5A6D5A"></span><span class="swatch" style="background:#D97D54"></span><span class="swatch" style="background:#E8B44D"></span>Terracotta</button>
+</div>
+
+<style>
+  #theme-switcher {
+    position: fixed;
+    top: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10000;
+    display: flex;
+    gap: 4px;
+    padding: 6px;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(12px);
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    font-family: var(--font-display);
+  }
+
+  #theme-switcher button {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  #theme-switcher button:hover {
+    color: white;
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  #theme-switcher button.active {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+  }
+
+  .swatch {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+</style>
+
+<script>
+  const themes: Record<string, Record<string, string>> = {
+    // Deep emerald + coral red + peach
+    coral: {
+      '--cream': '#FAF7F4',
+      '--cream-dark': '#F0ECE8',
+      '--sage': '#2E6E5E',
+      '--sage-dark': '#1A5245',
+      '--terracotta': '#E06858',
+      '--brown': '#3A2E2A',
+      '--brown-light': '#6A5550',
+      '--text': '#1A1512',
+      '--text-muted': '#6A5550',
+      '--accent-yellow': '#F0A87A',
+    },
+    // Sage green + warm orange + gold
+    terracotta: {
+      '--cream': '#F9F6F0',
+      '--cream-dark': '#F0EBE3',
+      '--sage': '#5A6D5A',
+      '--sage-dark': '#3F4F3F',
+      '--terracotta': '#D97D54',
+      '--brown': '#3D2817',
+      '--brown-light': '#6B4E37',
+      '--text': '#1A1512',
+      '--text-muted': '#645A52',
+      '--accent-yellow': '#E8B44D',
+    },
+  };
+
+  const root = document.documentElement;
+  const buttons = document.querySelectorAll('#theme-switcher button');
+
+  buttons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const themeName = (btn as HTMLElement).dataset.theme!;
+      const theme = themes[themeName];
+
+      for (const [prop, value] of Object.entries(theme)) {
+        root.style.setProperty(prop, value);
+      }
+
+      buttons.forEach((b) => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+</script>
